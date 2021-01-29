@@ -7,7 +7,8 @@ class Controller {
     static register(req, res, next) {
         const user = {
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            ProjectId: null
         }
 
         console.log(user)

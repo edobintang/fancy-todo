@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Todo.belongsTo(models.User, { foreignKey: 'user_id' })
+      Todo.belongsTo(models.Project, { foreignKey: 'ProjectId'})
     }
   };
   Todo.init({
@@ -50,6 +51,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Todo',
+    hooks: {
+      beforeCreate(todo, options) {
+        if(todo.ProjectId === 0) {
+          todo.ProjectId = null
+        } 
+      }
+    }
   });
   return Todo;
 };

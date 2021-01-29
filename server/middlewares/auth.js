@@ -18,6 +18,7 @@ function authentication(req, res, next) {
                     })
                 } else {
                     req.userId = data.id
+                    req.ProjectId = data.ProjectId
                     next()
                 }
             })

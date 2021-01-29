@@ -28,8 +28,7 @@ class Controller {
             status: 'undone',
             due_date: formatDate(req.body.due_date),
             user_id: req.userId,
-            createdAt: new Date(),
-            updatedAt: new Date()
+            ProjectId: +req.body.ProjectId
         }
 
         Todo.create(todo)
